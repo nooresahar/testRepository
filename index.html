@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="hci">
+<div ng-controller="userController">
+
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/quill.js"></script>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/ngStorage.min.js"></script>
+
+    <script src="module.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+
+    <style>
+         .testClass h1{
+        color: {{p.headingColor}};
+        font-size: {{p.headingSize}};
+         text-align: {{p.headingAlign}};
+        font-family: {{p.headingFontFamily}};
+         font-weight: {{p.headingWeight}};
+         font-style: {{p.headingFontStyle}}
+             }
+
+        .testClass h3{
+        color: {{p.subheadingColor}};
+        font-size: {{p.subheadingSize}};
+         text-align: {{p.subheadingAlign}};
+         font-family: {{p.subheadingFontFamily}};
+         font-weight: {{p.subheadingWeight}};
+         font-style: {{p.subheadingFontStyle}}
+
+            }
+        .testClass{
+        color: {{p.paragraphColor}};
+        font-size: {{p.paragraphSize}};
+         text-align: {{p.paragraphAlign}};
+         font-family: {{p.paragraphFontFamily}};
+         font-weight: {{p.paragraphWeight}};
+         font-style: {{p.paragraphFontStyle}};
+         line-height: {{p.lineHeight}}
+            }
+         .testClass li{
+         color: {{p.bulletColor}};
+         text-align: {{p.bulletAlign}};
+         font-size: {{p.bulletSize}};
+         font-family: {{p.bulletFontFamily}};
+         font-weight: {{p.bulletWeight}};
+         font-style: {{p.bulletFontStyle}}
+             }
+    </style>
+</div>
+
+<body>
+<div class="page-header container">
+    <a class="btn btn-primary" ui-sref="admin">Admin</a>
+</div>
+<div ng-controller="editorController" class="container">
+    <div class="toolbar ">
+        <button class="btn btn-primary" ng-click="getLargeHeading()">Large Heading</button>
+        <button class="btn btn-success" ng-click="getSmallHeading()">Slightly Small Heading</button>
+        <button class="btn btn-danger" ng-click="getSmallerHeading()">Even Smaller Heading!!</button>
+        <button class="btn btn-default" ng-click="getSmallerHeading()">Bullets</button>
+    </div>
+    <br/>
+    <div ng-mouseup="getHighlight()">
+        <div class="col-lg-5 pull-left">
+            <textarea class="testing" rows="10">
+            </textarea>
+        </div>
+    </div>
+    <div ng-bind-html="userText" class="testClass"></div>
+</div>
+<div ui-view></div>
+</body>
+</html>
